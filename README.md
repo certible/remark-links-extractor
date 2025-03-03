@@ -2,7 +2,7 @@
 
 Remark plugin to extract internal, external, and hash links from markdown. This remark plugin is **module only** and does not support CommonJS. Ensure your project is configured to use ES modules.
 
-We use add [certible.com](https://www.certible.com) use this to check for broken links after an automated build of our Astro site.
+We use @[certible.com](https://www.certible.com) use this to check for broken links after an automated build of our Astro site.
 
 ## Installation
 
