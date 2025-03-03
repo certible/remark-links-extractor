@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"lib": ["es2022", "DOM"],
+		"module": "NodeNext",
+		"checkJs": true,
+		"strict": true,
+		"exactOptionalPropertyTypes": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "./"
+	},
+	"include": ["lib/*.js", "index.js", "!**/*.d.ts"],
+	"exclude": ["coverage/", "node_modules/"]
+}

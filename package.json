@@ -1,0 +1,50 @@
+{
+	"name": "@certible/remark-link-extractor",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "Remark plugin to extract internal, external and hash links from parsed AST markdown",
+	"author": "Certible <oberreiter@certible.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/certible/remark-link-extractor.git"
+	},
+	"bugs": {
+		"url": "https://github.com/certible/remark-link-extractor/issues"
+	},
+	"keywords": [
+		"remark",
+		"markdown"
+	],
+	"sideEffects": false,
+	"exports": "./index.js",
+	"main": "index.js",
+	"files": [
+		"index.d.ts",
+		"index.js",
+		"lib/"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "npm run lint --fix",
+		"build": "tsc --build --clean && tsc --build",
+		"test": "npm run build && npx vitest --run"
+	},
+	"dependencies": {
+		"github-slugger": "2.0.0",
+		"hast-util-from-html": "2.0.3",
+		"hast-util-has-property": "3.0.0",
+		"is-absolute-url": "4.0.1",
+		"mdast-util-mdx-jsx": "3.2.0",
+		"mdast-util-to-string": "4.0.0",
+		"unist-util-visit": "5.0.0"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^3.9.2",
+		"eslint": "^9.15.0",
+		"remark": "15.0.1",
+		"remark-parse": "11.0.0",
+		"typescript": "5.7.3",
+		"vitest": "3.0.7"
+	}
+}
