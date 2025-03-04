@@ -20,9 +20,16 @@ function getKey(file) {
 describe('remark-link-extractor', () => {
 	test('should extract headings from markdown', () => {
 		const file = 'mock/headings.md';
-		remark().use(remarkParse).use(remarkLinksExtractor).process(createVFile(file));
+		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).process(createVFile(file));
 		const data = getData();
 		expect(data.headings[getKey(file)]).toEqual(['heading-1', 'heading-2']);
+	});
+
+	test('should not extract headings from markdown if no header slug creation is active', () => {
+		const file = 'mock/headings.md';
+		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: false }).process(createVFile(file));
+		const data = getData();
+		expect(data.headings[getKey(file)]).toEqual([]);
 	});
 
 	test('should extract internal links from markdown', () => {
@@ -56,9 +63,21 @@ describe('remark-link-extractor', () => {
 		const vFile = createVFile(file);
 		vFile.data = { astro: { frontmatter: { slug } } };
 
-		remark().use(remarkParse).use(remarkLinksExtractor, { astroUseSlug: true }).processSync(vFile);
+		remark().use(remarkParse).use(remarkLinksExtractor, { astroUseSlug: true, createHeadingsSlug: true }).processSync(vFile);
 
 		const data = getData();
 		expect(data.headings[slug]).toEqual(['heading-1']);
+	});
+
+	test('if no file path present it should create a filename in ordered format', () => {
+		const file = 'mock/headings.md';
+		const vFile = createVFile(file);
+		vFile.history = [];
+		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).processSync(vFile);
+		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).processSync(vFile);
+
+		const data = getData();
+		expect(data.headings['file-1']).toEqual(['heading-1', 'heading-2']);
+		expect(data.headings['file-2']).toEqual(['heading-1', 'heading-2']);
 	});
 });
