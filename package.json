@@ -28,7 +28,7 @@
 		"lint": "eslint .",
 		"lint:fix": "npm run lint --fix",
 		"build": "tsc --build --clean && tsc --build",
-		"test": "npm run build && npx vitest --run"
+		"test": "npm run build && node --test"
 	},
 	"dependencies": {
 		"github-slugger": "2.0.0",
