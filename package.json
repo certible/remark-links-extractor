@@ -7,10 +7,10 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/certible/remark-link-extractor.git"
+		"url": "git+https://github.com/certible/remark-links-extractor.git"
 	},
 	"bugs": {
-		"url": "https://github.com/certible/remark-link-extractor/issues"
+		"url": "https://github.com/certible/remark-links-extractor/issues"
 	},
 	"keywords": [
 		"remark",
