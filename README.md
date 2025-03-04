@@ -7,13 +7,13 @@ We use @[certible.com](https://www.certible.com) use this to check for broken li
 ## Installation
 
 ```sh
-npm install @certible/remark-link-extractor
+npm install @certible/remark-links-extractor
 ```
 
 ## Usage
 
 ```javascript
-import { getData, remarkLinkExtractor } from '@certible/remark-link-extractor';
+import { getData, remarkLinksExtractor } from '@certible/remark-links-extractor';
 import { remark } from 'remark';
 import remarkParse from 'remark-parse';
 
@@ -35,7 +35,7 @@ remark()
  });
 ```
 
-## Options
+## Plugin Options
 
 ### `astroIgnoreDraft`
 
@@ -51,29 +51,24 @@ Default: `false`
 
 Whether to use the slug from Astro frontmatter and not the file path as the key.
 
-## API
+### `createHeadingsSlug`
 
-### `remarkLinkExtractor(options)`
+Type: `boolean`
+Default: `false`
 
-Extracts headings, internal links, and external links from a markdown or mdx file.
+Whether to create a slug from the heading text if no `id` attribute is present, if `true` it will use `github-slugger` to create a slug from the heading text.
 
-#### Parameters
-
-- `options` (optional): An object containing the following properties:
-  - `astroIgnoreDraft` (boolean): Whether to ignore draft files if declared in Astro frontmatter.
-  - `astroUseSlug` (boolean): Whether to use the slug from Astro frontmatter and not the file path as the key.
-
-### `getData()`
+### Method `getData()`
 
 Returns the extracted link data.
 
 #### Returns
 
-An object containing the following properties:
+An object containing the following properties, as `Record<string, []string>`. The keys are the file path or slug if `astroUseSlug` is `true`. If no file path or slug is available, the key will be an ordered number.
 
 - `headings`: Record of headings extracted from the markdown files.
 - `internalLinks`: Record of internal links extracted from the markdown files.
-- `externalLinks`: Record of external links extracted from the markdown files.##
+- `externalLinks`: Record of external links extracted from the markdown files.
 
 ## License
 

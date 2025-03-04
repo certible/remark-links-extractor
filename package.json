@@ -1,5 +1,5 @@
 {
-	"name": "@certible/remark-link-extractor",
+	"name": "@certible/remark-links-extractor",
 	"type": "module",
 	"version": "1.0.0",
 	"description": "Remark plugin to extract internal, external and hash links from parsed AST markdown",
