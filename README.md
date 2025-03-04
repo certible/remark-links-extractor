@@ -2,7 +2,7 @@
 
 Remark plugin to extract internal, external, and hash links from markdown. This remark plugin is **module only** and does not support CommonJS. Ensure your project is configured to use ES modules.
 
-We use @[certible.com](https://www.certible.com) use this to check for broken links after an automated build of our Astro site.
+We @[certible.com](https://www.certible.com) use this plugin to check for broken links in our markdown content after an automated build of our Astro site.
 
 ## Installation
 
@@ -58,6 +58,13 @@ Default: `false`
 
 Whether to create a slug from the heading text if no `id` attribute is present, if `true` it will use `github-slugger` to create a slug from the heading text.
 
+### `resetDataOnRun`
+
+Type: `boolean`
+Default: `false`
+
+Whether to reset the data collections before processing a new file.
+
 ### Method `getData()`
 
 Returns the extracted link data.
@@ -69,6 +76,10 @@ An object containing the following properties, as `Record<string, []string>`. Th
 - `headings`: Record of headings extracted from the markdown files.
 - `internalLinks`: Record of internal links extracted from the markdown files.
 - `externalLinks`: Record of external links extracted from the markdown files.
+
+### Method `resetData()`
+
+Resets the extracted link data.
 
 ## License
 

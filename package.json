@@ -14,7 +14,9 @@
 	},
 	"keywords": [
 		"remark",
-		"markdown"
+		"markdown",
+		"astro",
+		"mdx"
 	],
 	"sideEffects": false,
 	"exports": "./index.js",
@@ -24,6 +26,9 @@
 		"index.js",
 		"lib/"
 	],
+	"engines": {
+		"node": ">=20.0.0"
+	},
 	"scripts": {
 		"lint": "eslint .",
 		"lint:fix": "npm run lint --fix",
