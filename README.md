@@ -84,3 +84,7 @@ Resets the extracted link data.
 ## License
 
 MIT License. See [LICENSE](./LICENSE) for more information.
+
+## About
+
+This package is developed and maintained by **[Certible](https://certible.com)**.
