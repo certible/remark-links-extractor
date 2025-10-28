@@ -39,17 +39,17 @@
 		"github-slugger": "2.0.0",
 		"hast-util-from-html": "2.0.3",
 		"hast-util-has-property": "3.0.0",
-		"is-absolute-url": "4.0.1",
+		"is-absolute-url": "5.0.0",
 		"mdast-util-mdx-jsx": "3.2.0",
 		"mdast-util-to-string": "4.0.0",
 		"unist-util-visit": "5.0.0"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "5.1.0",
+		"@antfu/eslint-config": "6.1.0",
 		"eslint": "^9.15.0",
 		"remark": "15.0.1",
 		"remark-parse": "11.0.0",
 		"typescript": "^5.7.3",
-		"vitest": "3.2.4"
+		"vitest": "4.0.4"
 	}
 }
