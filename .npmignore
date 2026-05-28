@@ -1,5 +1,6 @@
 test
-eslint.config.js
+.oxfmtrc.json
+.oxlintrc.json
 .github
 .vscode
 renovate.json
