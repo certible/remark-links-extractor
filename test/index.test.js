@@ -1,4 +1,3 @@
-/* eslint-disable test/no-import-node-test */
 import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,14 +22,20 @@ function getKey(file) {
 test('remark-link-extractor', async () => {
 	await test('should extract headings from markdown', () => {
 		const file = 'mock/headings.md';
-		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).process(createVFile(file));
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { createHeadingsSlug: true })
+			.process(createVFile(file));
 		const data = getData();
 		assert.deepStrictEqual(data.headings[getKey(file)], ['heading-1', 'heading-2']);
 	});
 
 	await test('should not extract headings from markdown if no header slug creation is active', () => {
 		const file = 'mock/headings.md';
-		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: false }).process(createVFile(file));
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { createHeadingsSlug: false })
+			.process(createVFile(file));
 		const data = getData();
 		assert.deepStrictEqual(data.headings[getKey(file)], []);
 	});
@@ -54,7 +59,10 @@ test('remark-link-extractor', async () => {
 		const vFile = createVFile(file);
 		vFile.data = { astro: { frontmatter: { draft: true } } };
 
-		remark().use(remarkParse).use(remarkLinksExtractor, { astroIgnoreDraft: true }).processSync(vFile);
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { astroIgnoreDraft: true })
+			.processSync(vFile);
 
 		const data = getData();
 		assert.deepStrictEqual(data.headings[getKey(file)], undefined);
@@ -66,7 +74,10 @@ test('remark-link-extractor', async () => {
 		const vFile = createVFile(file);
 		vFile.data = { astro: { frontmatter: { slug } } };
 
-		remark().use(remarkParse).use(remarkLinksExtractor, { astroUseSlug: true, createHeadingsSlug: true }).processSync(vFile);
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { astroUseSlug: true, createHeadingsSlug: true })
+			.processSync(vFile);
 
 		const data = getData();
 		assert.deepStrictEqual(data.headings[slug], ['heading-1']);
@@ -76,8 +87,14 @@ test('remark-link-extractor', async () => {
 		const file = 'mock/headings.md';
 		const vFile = createVFile(file);
 		vFile.history = [];
-		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).processSync(vFile);
-		remark().use(remarkParse).use(remarkLinksExtractor, { createHeadingsSlug: true }).processSync(vFile);
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { createHeadingsSlug: true })
+			.processSync(vFile);
+		remark()
+			.use(remarkParse)
+			.use(remarkLinksExtractor, { createHeadingsSlug: true })
+			.processSync(vFile);
 
 		const data = getData();
 		assert.deepStrictEqual(data.headings['file-1'], ['heading-1', 'heading-2']);

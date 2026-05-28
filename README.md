@@ -7,7 +7,10 @@ We @[certible.com](https://www.certible.com) use this plugin to check for broken
 ## Installation
 
 ```sh
+# NPM
 npm install @certible/remark-links-extractor
+# PNPM
+pnpm add @certible/remark-links-extractor
 ```
 
 ## Usage

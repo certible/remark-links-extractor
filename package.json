@@ -1,39 +1,38 @@
 {
 	"name": "@certible/remark-links-extractor",
-	"type": "module",
 	"version": "1.0.0",
 	"description": "Remark plugin to extract internal, external and hash links from parsed AST markdown",
-	"author": "Certible <oberreiter@certible.com>",
+	"keywords": [
+		"astro",
+		"markdown",
+		"mdx",
+		"remark"
+	],
+	"bugs": {
+		"url": "https://github.com/certible/remark-links-extractor/issues"
+	},
 	"license": "MIT",
+	"author": "Certible <oberreiter@certible.com>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/certible/remark-links-extractor.git"
 	},
-	"bugs": {
-		"url": "https://github.com/certible/remark-links-extractor/issues"
-	},
-	"keywords": [
-		"remark",
-		"markdown",
-		"astro",
-		"mdx"
-	],
-	"sideEffects": false,
-	"exports": "./index.js",
-	"main": "index.js",
 	"files": [
 		"index.d.ts",
 		"index.js",
 		"lib/"
 	],
-	"engines": {
-		"node": ">=20.0.0"
-	},
+	"type": "module",
+	"sideEffects": false,
+	"main": "index.js",
+	"exports": "./index.js",
 	"scripts": {
-		"lint": "eslint .",
-		"lint:fix": "npm run lint --fix",
+		"lint": "oxlint .",
+		"lint:fix": "oxlint . --fix && oxfmt .",
+		"format": "oxfmt .",
+		"format:check": "oxfmt . --check",
 		"build": "tsc --build --clean && tsc --build",
-		"test": "npm run build && node --test"
+		"test": "pnpm run build && node --test"
 	},
 	"dependencies": {
 		"github-slugger": "2.0.0",
@@ -45,11 +44,18 @@
 		"unist-util-visit": "5.0.0"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "6.1.0",
-		"eslint": "^9.15.0",
+		"@types/hast": "3.0.4",
+		"@types/mdast": "4.0.4",
+		"oxfmt": "0.52.0",
+		"oxlint": "1.67.0",
 		"remark": "15.0.1",
 		"remark-parse": "11.0.0",
 		"typescript": "^5.7.3",
+		"vfile": "6.0.3",
 		"vitest": "4.0.4"
-	}
+	},
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"packageManager": "pnpm@11.4.0"
 }
