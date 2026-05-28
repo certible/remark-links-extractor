@@ -41,7 +41,7 @@
 		"is-absolute-url": "5.0.0",
 		"mdast-util-mdx-jsx": "3.2.0",
 		"mdast-util-to-string": "4.0.0",
-		"unist-util-visit": "5.0.0"
+		"unist-util-visit": "5.1.0"
 	},
 	"devDependencies": {
 		"@types/hast": "3.0.4",
