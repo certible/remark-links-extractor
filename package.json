@@ -50,7 +50,7 @@
 		"oxlint": "1.67.0",
 		"remark": "15.0.1",
 		"remark-parse": "11.0.0",
-		"typescript": "^5.7.3",
+		"typescript": "^7.0.0",
 		"vfile": "6.0.3",
 		"vitest": "4.0.4"
 	},
